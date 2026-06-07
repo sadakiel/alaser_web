@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alaser — Cortadoras Láser de Metal para Talleres</title>
+  <meta name="description" content="Cortadoras láser de metal importadas directamente desde China. Instalación en Colombia. Modelos CO2 y Fibra desde USD $5.000. Cotiza ahora." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cyan: #00d4ff;
+      --cyan-dark: #00a8cc;
+      --orange: #ff6b00;
+      --dark: #080c14;
+      --dark2: #0f1623;
+      --dark3: #1a2236;
+      --dark4: #222d42;
+      --text: #e8edf5;
+      --muted: #8a96ab;
+      --border: rgba(255,255,255,0.08);
+      --wa: #25D366;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(8,12,20,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-size: 1.5rem; font-weight: 900; letter-spacing: -0.5px;
+      background: linear-gradient(90deg, #fff 0%, var(--cyan) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .logo span { color: var(--cyan); -webkit-text-fill-color: var(--cyan); }
+    nav a.nav-cta {
+      background: var(--cyan); color: #000; font-weight: 700;
+      padding: 0.5rem 1.25rem; border-radius: 6px;
+      text-decoration: none; font-size: 0.875rem;
+      transition: background 0.2s;
+    }
+    nav a.nav-cta:hover { background: var(--cyan-dark); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 7rem 1.5rem 4rem;
+      position: relative; overflow: hidden;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,212,255,0.12) 0%, transparent 70%),
+                  var(--dark);
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300d4ff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3);
+      color: var(--cyan); padding: 0.35rem 1rem; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; margin-bottom: 1.5rem;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 900; line-height: 1.1;
+      letter-spacing: -1.5px; margin-bottom: 1.25rem;
+      max-width: 800px; margin-left: auto; margin-right: auto;
+    }
+    .hero h1 em { font-style: normal; color: var(--cyan); }
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--muted); max-width: 560px;
+      margin: 0 auto 2.5rem; line-height: 1.7;
+    }
+    .hero-btns {
+      display: flex; gap: 1rem; justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--wa); color: #fff; font-weight: 700;
+      padding: 0.9rem 2rem; border-radius: 8px;
+      text-decoration: none; font-size: 1rem;
+      transition: all 0.2s; box-shadow: 0 4px 24px rgba(37,211,102,0.35);
+    }
+    .btn-primary:hover { background: #20b558; transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--text); font-weight: 600;
+      padding: 0.9rem 2rem; border-radius: 8px;
+      text-decoration: none; font-size: 1rem;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--cyan); color: var(--cyan); }
+
+    .hero-stats {
+      display: flex; justify-content: center; gap: 3rem;
+      margin-top: 4rem; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat strong { display: block; font-size: 2rem; font-weight: 900; color: var(--cyan); }
+    .stat span { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* ── LASER LINE ── */
+    .laser-line {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--cyan), var(--orange), var(--cyan), transparent);
+      animation: laser-scan 3s ease-in-out infinite;
+    }
+    @keyframes laser-scan {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 2px; color: var(--cyan); margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 800; letter-spacing: -1px;
+      line-height: 1.15; margin-bottom: 1rem;
+    }
+    .section-sub {
+      color: var(--muted); font-size: 1.05rem;
+      max-width: 540px; line-height: 1.7;
+    }
+
+    /* ── PROBLEMA / SOLUCIÓN ── */
+    .problem-bg { background: var(--dark2); }
+    .problem-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center;
+    }
+    @media (max-width: 768px) { .problem-grid { grid-template-columns: 1fr; } }
+    .problem-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+    .problem-list li {
+      display: flex; gap: 1rem; align-items: flex-start;
+      background: var(--dark3); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1rem 1.25rem;
+    }
+    .problem-list li .icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .problem-list li strong { display: block; font-weight: 600; margin-bottom: 0.2rem; }
+    .problem-list li p { color: var(--muted); font-size: 0.9rem; }
+
+    /* ── MODELOS ── */
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .model-card {
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.75rem;
+      transition: all 0.25s; position: relative; overflow: hidden;
+    }
+    .model-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,212,255,0.12);
+    }
+    .model-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--cyan), var(--cyan-dark));
+    }
+    .model-type {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px;
+      padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 1rem;
+    }
+    .model-type.co2 { background: rgba(255,107,0,0.15); color: var(--orange); }
+    .model-type.fibra { background: rgba(0,212,255,0.15); color: var(--cyan); }
+    .model-name { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.35rem; }
+    .model-power { color: var(--cyan); font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
+    .model-specs { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.25rem; }
+    .model-specs li { display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--muted); }
+    .model-specs li::before { content: '✓'; color: var(--cyan); font-weight: 700; flex-shrink: 0; }
+    .model-price {
+      font-size: 0.85rem; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 1rem;
+      margin-top: auto;
+    }
+    .model-price strong { color: var(--text); font-size: 1rem; }
+    .model-cta {
+      display: block; text-align: center; margin-top: 1rem;
+      background: rgba(0,212,255,0.1); color: var(--cyan);
+      border: 1px solid rgba(0,212,255,0.3);
+      padding: 0.6rem; border-radius: 7px;
+      text-decoration: none; font-weight: 600; font-size: 0.875rem;
+      transition: all 0.2s;
+    }
+    .model-cta:hover { background: var(--cyan); color: #000; }
+
+    /* ── PROCESO ── */
+    .process-bg { background: var(--dark2); }
+    .steps {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0; margin-top: 3rem; position: relative;
+    }
+    .step {
+      text-align: center; padding: 2rem 1.5rem; position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '→';
+      position: absolute; right: -0.5rem; top: 50%;
+      transform: translateY(-50%);
+      color: var(--cyan); font-size: 1.5rem;
+    }
+    @media (max-width: 768px) { .step:not(:last-child)::after { display: none; } }
+    .step-num {
+      width: 56px; height: 56px;
+      background: rgba(0,212,255,0.1); border: 2px solid rgba(0,212,255,0.4);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.3rem; font-weight: 900; color: var(--cyan);
+    }
+    .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .step p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── VENTAJAS ── */
+    .benefits-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem; margin-top: 3rem;
+    }
+    .benefit {
+      background: var(--dark2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .benefit-icon {
+      width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+      background: rgba(0,212,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .benefit h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .benefit p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── FAQ ── */
+    .faq-bg { background: var(--dark2); }
+    .faq-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    details {
+      background: var(--dark3); border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+    }
+    details[open] { border-color: rgba(0,212,255,0.3); }
+    summary {
+      padding: 1.25rem 1.5rem;
+      font-weight: 600; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      list-style: none; user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; font-size: 1.3rem; color: var(--cyan); }
+    details[open] summary::after { content: '−'; }
+    .faq-answer { padding: 0 1.5rem 1.25rem; color: var(--muted); line-height: 1.8; font-size: 0.95rem; }
+
+    /* ── CTA FINAL ── */
+    .cta-final {
+      background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(0,212,255,0.1) 0%, transparent 70%),
+                  var(--dark);
+      text-align: center; padding: 6rem 1.5rem;
+    }
+    .cta-final h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900; letter-spacing: -1.5px;
+      margin-bottom: 1rem; line-height: 1.1;
+    }
+    .cta-final h2 em { font-style: normal; color: var(--cyan); }
+    .cta-final p { color: var(--muted); font-size: 1.1rem; margin-bottom: 2.5rem; }
+    .cta-note { font-size: 0.8rem; color: var(--muted); margin-top: 1rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem; text-align: center;
+      color: var(--muted); font-size: 0.85rem;
+      background: var(--dark);
+    }
+
+    /* ── FLOATING WA ── */
+    .wa-float {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--wa);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+      transition: all 0.2s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .reveal-stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+    .reveal-stagger > * {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; }
+    .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.12s; }
+    .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.19s; }
+    .reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.26s; }
+    .reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.33s; }
+    .reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.40s; }
+
+    /* ── IMAGE SLOTS (replace bg-image url() with real photos) ── */
+    .img-slot {
+      position: relative; overflow: hidden; border-radius: 14px;
+      background: linear-gradient(135deg, var(--dark3) 0%, var(--dark4) 100%);
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border);
+    }
+    .img-slot img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .img-slot .img-placeholder {
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: var(--muted); text-align: center; padding: 1.5rem;
+    }
+    .img-slot .img-placeholder .ico { font-size: 2.2rem; opacity: 0.6; }
+    .img-slot .img-placeholder span { font-size: 0.78rem; line-height: 1.5; max-width: 220px; }
+    .img-slot .img-placeholder code {
+      background: rgba(0,212,255,0.08); color: var(--cyan);
+      padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.72rem;
+    }
+    .img-slot::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(120deg, transparent 30%, rgba(0,212,255,0.06) 50%, transparent 70%);
+      background-size: 200% 100%; animation: shimmer-slot 4s ease-in-out infinite;
+    }
+    @keyframes shimmer-slot {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .hero-media {
+      margin: 2.5rem auto 0; max-width: 760px;
+      aspect-ratio: 16/8; opacity: 0; animation: hero-rise 0.8s ease forwards; animation-delay: 0.74s;
+    }
+    .model-media { aspect-ratio: 4/3; margin-bottom: 1.25rem; }
+
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem; margin-top: 3rem;
+    }
+    .gallery-item { aspect-ratio: 1/1; }
+    .gallery-item .img-placeholder .ico { font-size: 1.8rem; }
+
+    /* ── HERO ANIMATIONS ── */
+    .hero-badge, .hero h1, .hero p, .hero-btns, .hero-stats {
+      opacity: 0; animation: hero-rise 0.8s ease forwards;
+    }
+    .hero-badge { animation-delay: 0.05s; }
+    .hero h1 { animation-delay: 0.18s; }
+    .hero p { animation-delay: 0.32s; }
+    .hero-btns { animation-delay: 0.46s; }
+    .hero-stats { animation-delay: 0.6s; }
+    @keyframes hero-rise {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* floating glow orbs in hero */
+    .orb {
+      position: absolute; border-radius: 50%; filter: blur(80px);
+      pointer-events: none; opacity: 0.35;
+      animation: float-orb 12s ease-in-out infinite;
+    }
+    .orb-1 { width: 320px; height: 320px; background: var(--cyan); top: -100px; left: -80px; }
+    .orb-2 { width: 260px; height: 260px; background: var(--orange); bottom: -80px; right: -60px; animation-delay: -6s; }
+    @keyframes float-orb {
+      0%, 100% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(40px,-30px) scale(1.15); }
+    }
+
+    /* nav shrink on scroll */
+    nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+
+    /* card tilt + shimmer */
+    .model-card { will-change: transform; }
+    .model-card .shine {
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(circle 180px at var(--mx,50%) var(--my,50%), rgba(0,212,255,0.12), transparent 70%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .model-card:hover .shine { opacity: 1; }
+
+    /* number count-up */
+    .stat strong { font-variant-numeric: tabular-nums; }
+
+    /* button pulse */
+    .btn-primary { position: relative; }
+    .btn-primary::after {
+      content: ''; position: absolute; inset: 0; border-radius: 8px;
+      box-shadow: 0 0 0 0 rgba(37,211,102,0.5);
+      animation: pulse-ring 2.4s ease-out infinite;
+    }
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.45); }
+      70% { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+    .wa-float { animation: pulse-ring-wa 2.4s ease-out infinite; }
+    @keyframes pulse-ring-wa {
+      0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+      70% { box-shadow: 0 0 0 16px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+
+    /* step number pop on view */
+    .step-num { transition: transform 0.4s cubic-bezier(.34,1.56,.64,1), background 0.3s; }
+    .step.is-visible .step-num { transform: scale(1.12); background: rgba(0,212,255,0.22); }
+
+    /* RESPONSIVE TWEAKS */
+    @media (max-width: 640px) {
+      nav { padding: 0.75rem 1rem; }
+      .hero-stats { gap: 2rem; }
+      .step::after { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">A<span>laser</span></div>
+  <a class="nav-cta" href="https://wa.me/573117343914?text=Hola%2C%20quiero%20cotizar%20una%20cortadora%20l%C3%A1ser" target="_blank">Cotizar ahora</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div style="position:relative;z-index:1;">
+    <div class="hero-badge">🔥 Importación directa desde China · Instalación en Colombia</div>
+    <h1>Tu taller merece cortar metal<br/>con <em>precisión láser</em></h1>
+    <p>Cortadoras láser CO₂ y Fibra, fabricadas con los mejores componentes, entregadas e instaladas en tu taller. Desde <strong style="color:var(--cyan)">USD $5.000</strong>.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="https://wa.me/573117343914?text=Hola%2C%20quiero%20cotizar%20una%20cortadora%20l%C3%A1ser" target="_blank">
+        <svg viewBox="0 0 24 24" width="20" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.556 4.122 1.528 5.855L.057 23.885l6.236-1.635A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.877 9.877 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374A9.86 9.86 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106S21.894 6.58 21.894 12 17.42 21.894 12 21.894z"/></svg>
+        Quiero una cotización
+      </a>
+      <a class="btn-secondary" href="#modelos">Ver modelos ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><strong>4</strong><span>Modelos disponibles</span></div>
+      <div class="stat"><strong>CO₂ + Fibra</strong><span>Tecnologías</span></div>
+      <div class="stat"><strong>100%</strong><span>Instalación incluida</span></div>
+    </div>
+
+    <!-- IMAGEN PRINCIPAL: reemplaza con foto/video de tu mejor máquina cortando -->
+    <div class="img-slot hero-media">
+      <!-- Para usar tu foto, borra el div .img-placeholder y agrega:
+           <img src="TU_URL_AQUI.jpg" alt="Cortadora láser Alaser cortando chapa metálica" /> -->
+      <div class="img-placeholder">
+        <span class="ico">🖼️</span>
+        <span>Foto o video destacado de una cortadora en acción.<br/>Reemplaza este bloque con <code>&lt;img src="..."&gt;</code></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="laser-line"></div>
+
+<!-- PROBLEMA -->
+<section class="problem-bg">
+  <div class="container">
+    <div class="problem-grid">
+      <div class="reveal">
+        <p class="section-label">El problema</p>
+        <h2 class="section-title">¿Todavía cortando con plasma u oxicorte?</h2>
+        <p class="section-sub">Los métodos tradicionales te cuestan tiempo, material y clientes. Tu competencia ya está usando láser.</p>
+      </div>
+      <ul class="problem-list reveal-stagger">
+        <li>
+          <div class="icon">⚡</div>
+          <div><strong>Lentitud que te cuesta contratos</strong><p>El corte plasma es 3-5x más lento que el láser de fibra en chapa delgada.</p></div>
+        </li>
+        <li>
+          <div class="icon">♻️</div>
+          <div><strong>Desperdicio de material</strong><p>Cortes imprecisos generan rechazo de piezas y pérdida de materia prima.</p></div>
+        </li>
+        <li>
+          <div class="icon">📉</div>
+          <div><strong>No puedes competir en precio</strong><p>Los talleres con láser producen más en menos tiempo y cobran menos por pieza.</p></div>
+        </li>
+        <li>
+          <div class="icon">🔧</div>
+          <div><strong>Mantenimiento constante</strong><p>El plasma consume electrodos y boquillas. El láser de fibra es prácticamente sin consumibles.</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MODELOS -->
+<section id="modelos">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Nuestros equipos</p>
+      <h2 class="section-title">Elige el modelo para tu taller</h2>
+      <p class="section-sub">Todos los equipos se fabrican bajo pedido con los mejores componentes disponibles y vienen con instalación y capacitación.</p>
+    </div>
+    <div class="models-grid reveal-stagger">
+
+      <!-- AL1390 CO2 100W -->
+      <div class="model-card"><div class="shine"></div>
+        <!-- Reemplaza con: <img src="al1390.jpg" alt="Cortadora láser AL1390 CO2 100W" /> -->
+        <div class="img-slot model-media"><div class="img-placeholder"><span class="ico">📷</span><span>Foto AL1390<br/><code>&lt;img src="..."&gt;</code></span></div></div>
+        <span class="model-type co2">CO₂</span>
+        <div class="model-name">AL1390</div>
+        <div class="model-power">100W</div>
+        <ul class="model-specs">
+          <li>Mesa de trabajo 1300 × 900 mm</li>
+          <li>Ideal para acrílico, madera y metal fino</li>
+          <li>Velocidad máx. 40.000 mm/min</li>
+          <li>Precisión ±0.05 mm</li>
+        </ul>
+        <div class="model-price">Desde <strong>USD $5.000</strong></div>
+        <a class="model-cta" href="https://wa.me/573117343914?text=Hola%2C%20me%20interesa%20el%20modelo%20AL1390%20CO2%20100W" target="_blank">Cotizar este modelo</a>
+      </div>
+
+      <!-- AL1225 CO2 300W -->
+      <div class="model-card"><div class="shine"></div>
+        <!-- Reemplaza con: <img src="al1225.jpg" alt="Cortadora láser AL1225 CO2 300W" /> -->
+        <div class="img-slot model-media"><div class="img-placeholder"><span class="ico">📷</span><span>Foto AL1225<br/><code>&lt;img src="..."&gt;</code></span></div></div>
+        <span class="model-type co2">CO₂</span>
+        <div class="model-name">AL1225</div>
+        <div class="model-power">300W</div>
+        <ul class="model-specs">
+          <li>Mesa de trabajo 1200 × 2500 mm</li>
+          <li>Corte en acero inox hasta 3 mm</li>
+          <li>Potencia industrial CO₂</li>
+          <li>Cabezal autofoco incluido</li>
+        </ul>
+        <div class="model-price">Consultar precio</div>
+        <a class="model-cta" href="https://wa.me/573117343914?text=Hola%2C%20me%20interesa%20el%20modelo%20AL1225%20CO2%20300W" target="_blank">Cotizar este modelo</a>
+      </div>
+
+      <!-- AL3015 Fibra 3000W -->
+      <div class="model-card" style="border-color: rgba(0,212,255,0.25);"><div class="shine"></div>
+        <!-- Reemplaza con: <img src="al3015-3000w.jpg" alt="Cortadora láser AL3015 Fibra 3000W" /> -->
+        <div class="img-slot model-media"><div class="img-placeholder"><span class="ico">📷</span><span>Foto AL3015 (3000W)<br/><code>&lt;img src="..."&gt;</code></span></div></div>
+        <span class="model-type fibra">Fibra · Popular</span>
+        <div class="model-name">AL3015</div>
+        <div class="model-power">3000W</div>
+        <ul class="model-specs">
+          <li>Mesa de trabajo 3000 × 1500 mm</li>
+          <li>Acero al carbono hasta 16 mm</li>
+          <li>Acero inoxidable hasta 8 mm</li>
+          <li>Sin consumibles de gas de corte</li>
+        </ul>
+        <div class="model-price">Consultar precio</div>
+        <a class="model-cta" href="https://wa.me/573117343914?text=Hola%2C%20me%20interesa%20el%20modelo%20AL3015%20Fibra%203000W" target="_blank">Cotizar este modelo</a>
+      </div>
+
+      <!-- AL3015 Fibra 6000W -->
+      <div class="model-card"><div class="shine"></div>
+        <!-- Reemplaza con: <img src="al3015-6000w.jpg" alt="Cortadora láser AL3015 Fibra 6000W" /> -->
+        <div class="img-slot model-media"><div class="img-placeholder"><span class="ico">📷</span><span>Foto AL3015 (6000W)<br/><code>&lt;img src="..."&gt;</code></span></div></div>
+        <span class="model-type fibra">Fibra · Pro</span>
+        <div class="model-name">AL3015</div>
+        <div class="model-power">6000W</div>
+        <ul class="model-specs">
+          <li>Mesa de trabajo 3000 × 1500 mm</li>
+          <li>Acero al carbono hasta 25 mm</li>
+          <li>Acero inoxidable hasta 16 mm</li>
+          <li>Máxima velocidad y productividad</li>
+        </ul>
+        <div class="model-price">Consultar precio</div>
+        <a class="model-cta" href="https://wa.me/573117343914?text=Hola%2C%20me%20interesa%20el%20modelo%20AL3015%20Fibra%206000W" target="_blank">Cotizar este modelo</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="laser-line"></div>
+
+<!-- PROCESO -->
+<section class="process-bg">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Cómo funciona</p>
+      <h2 class="section-title">De la cotización a tu taller</h2>
+      <p class="section-sub">Todo el proceso es transparente. Sabrás exactamente qué está pasando con tu máquina en cada etapa.</p>
+    </div>
+    <div class="steps reveal-stagger">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Cotización</h3>
+        <p>Cuéntanos tu necesidad. Te recomendamos el modelo ideal para tu taller y presupuesto.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Fabricación</h3>
+        <p>Tu máquina se fabrica en China con los mejores componentes disponibles. Te enviamos fotos del proceso.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Envío</h3>
+        <p>Gestionamos toda la logística internacional y el proceso de importación a Colombia.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Instalación</h3>
+        <p>Nuestro ingeniero va a tu taller, instala y calibra la máquina. También capacita a tu equipo.</p>
+      </div>
+    </div>
+
+    <!-- GALERÍA: fotos reales del proceso (fábrica, embalaje, instalación, cliente) -->
+    <div class="gallery-grid reveal-stagger">
+      <!-- Reemplaza cada bloque con: <div class="img-slot gallery-item"><img src="foto-fabrica.jpg" alt="Fabricación en China"/></div> -->
+      <div class="img-slot gallery-item"><div class="img-placeholder"><span class="ico">🏭</span><span>Fabricación en China</span></div></div>
+      <div class="img-slot gallery-item"><div class="img-placeholder"><span class="ico">📦</span><span>Embalaje y envío</span></div></div>
+      <div class="img-slot gallery-item"><div class="img-placeholder"><span class="ico">🔧</span><span>Instalación en taller</span></div></div>
+      <div class="img-slot gallery-item"><div class="img-placeholder"><span class="ico">✅</span><span>Cliente en operación</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VENTAJAS -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">¿Por qué Alaser?</p>
+      <h2 class="section-title">Importación directa. Sin intermediarios.</h2>
+    </div>
+    <div class="benefits-grid reveal-stagger">
+      <div class="benefit">
+        <div class="benefit-icon">💰</div>
+        <div><h3>Precio de fábrica</h3><p>Al importar directamente desde el fabricante en China, eliminas 2 o 3 capas de intermediarios. Pagas el precio justo.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🔩</div>
+        <div><h3>Componentes de primera</h3><p>Seleccionamos los mejores componentes disponibles en el momento de fabricación: láser Raycus, cabezal Raytools o superiores.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🛠️</div>
+        <div><h3>Instalación profesional</h3><p>No recibes una caja y un manual. Nuestro equipo va a tu taller, instala, calibra y te capacita hasta que estés produciendo.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">📞</div>
+        <div><h3>Soporte post-venta</h3><p>Después de la instalación, tienes acompañamiento técnico directo. No estás solo con una máquina que no entiendes.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🌍</div>
+        <div><h3>Presencia en China</h3><p>Estamos en la fuente. Podemos supervisar tu fabricación, resolver problemas y negociar directamente con el fabricante.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">⚡</div>
+        <div><h3>Retorno rápido</h3><p>Más producción, menos desperdicio, piezas más precisas. La mayoría de talleres recuperan la inversión en 12-18 meses.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-bg">
+  <div class="container" style="max-width:760px;">
+    <div class="reveal">
+      <p class="section-label">Preguntas frecuentes</p>
+      <h2 class="section-title">Lo que todo taller pregunta</h2>
+    </div>
+    <div class="faq-list reveal">
+      <details>
+        <summary>¿Cuánto tiempo demora el proceso desde el pedido hasta la instalación?</summary>
+        <div class="faq-answer">El tiempo promedio es de 45 a 75 días. Incluye: fabricación (25-35 días), tránsito marítimo (18-25 días) y proceso de importación y entrega en Colombia (5-10 días). Te mantenemos informado en cada etapa.</div>
+      </details>
+      <details>
+        <summary>¿Qué pasa si la máquina llega con algún daño o defecto?</summary>
+        <div class="faq-answer">Todas las máquinas se inspeccionan antes del envío y viajan con seguro de carga. Si llega con algún daño de transporte, gestionamos el reclamo y el reemplazo de la pieza afectada. Nuestra presencia en China nos permite resolver esto de forma directa y rápida.</div>
+      </details>
+      <details>
+        <summary>¿La instalación está incluida en el precio?</summary>
+        <div class="faq-answer">Sí. La instalación y la capacitación básica operativa están incluidas. Un ingeniero va a tu taller, instala la máquina, la calibra y te enseña a usarla. No pagas extra por esto.</div>
+      </details>
+      <details>
+        <summary>¿Qué materiales puede cortar cada tipo de máquina?</summary>
+        <div class="faq-answer">Las CO₂ son ideales para materiales no metálicos (acrílico, madera, cuero) y pueden cortar metales finos con asistencia de gas. Las de Fibra son la mejor opción para metales: acero al carbono, acero inoxidable, aluminio y cobre, con mayor velocidad y sin consumibles de gas.</div>
+      </details>
+      <details>
+        <summary>¿Puedo financiar la compra?</summary>
+        <div class="faq-answer">No ofrecemos financiación directa, pero muchos de nuestros clientes han accedido a créditos bancarios o leasing con la proforma de compra que emitimos. Podemos orientarte en ese proceso.</div>
+      </details>
+      <details>
+        <summary>¿Pueden enviar máquinas a otros países de Latinoamérica?</summary>
+        <div class="faq-answer">Sí. Por estar basados en China, podemos enviar a cualquier país de habla hispana. El envío e instalación en otro país tiene un costo adicional de desplazamiento, pero sigue siendo más económico que comprar a un distribuidor local.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="container reveal">
+    <h2>¿Listo para llevar tu taller<br/>al <em>siguiente nivel</em>?</h2>
+    <p>Cuéntanos qué materiales cortas y cuánto produces hoy.<br/>Te recomendamos el equipo ideal sin compromiso.</p>
+    <a class="btn-primary" style="display:inline-flex;font-size:1.05rem;padding:1rem 2.5rem;" href="https://wa.me/573117343914?text=Hola%2C%20quiero%20saber%20qu%C3%A9%20cortadora%20l%C3%A1ser%20es%20mejor%20para%20mi%20taller" target="_blank">
+      <svg viewBox="0 0 24 24" width="22" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.556 4.122 1.528 5.855L.057 23.885l6.236-1.635A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.877 9.877 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374A9.86 9.86 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106S21.894 6.58 21.894 12 17.42 21.894 12 21.894z"/></svg>
+      Hablar con un asesor por WhatsApp
+    </a>
+    <p class="cta-note">Respuesta en menos de 24 horas · Sin compromiso de compra</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>Alaser</strong> · Cortadoras Láser de Metal · Colombia</p>
+  <p style="margin-top:0.5rem;">
+    <a href="https://wa.me/573117343914" target="_blank" style="color:var(--cyan);text-decoration:none;">+57 311 734 39 14</a>
+  </p>
+</footer>
+
+<!-- FLOATING WA BUTTON -->
+<a class="wa-float" href="https://wa.me/573117343914?text=Hola%2C%20quiero%20información%20sobre%20las%20cortadoras%20láser" target="_blank" title="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.556 4.122 1.528 5.855L.057 23.885l6.236-1.635A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.877 9.877 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374A9.86 9.86 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106S21.894 6.58 21.894 12 17.42 21.894 12 21.894z"/></svg>
+</a>
+
+<script>
+  // Reveal-on-scroll
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger, .step');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Count-up stats
+  const stats = document.querySelectorAll('.stat strong');
+  const statIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      statIO.unobserve(e.target);
+      const el = e.target;
+      const raw = el.textContent.trim();
+      const num = parseInt(raw.replace(/\D/g, ''), 10);
+      if (isNaN(num)) return;
+      const suffix = raw.replace(/^[0-9]+/, '');
+      let cur = 0;
+      const step = Math.max(1, Math.ceil(num / 30));
+      const tick = () => {
+        cur = Math.min(cur + step, num);
+        el.textContent = cur + suffix;
+        if (cur < num) requestAnimationFrame(tick);
+      };
+      tick();
+    });
+  }, { threshold: 0.6 });
+  stats.forEach(el => statIO.observe(el));
+
+  // Nav shrink on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Card cursor-follow shine
+  document.querySelectorAll('.model-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+</script>
+</body>
+</html>
