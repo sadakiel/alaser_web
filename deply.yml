@@ -1,0 +1,30 @@
+name: Publicar en Hostinger
+ 
+on:
+  push:
+    branches:
+      - main   # cambia esto si tu rama principal se llama "master"
+ 
+jobs:
+  ftp-deploy:
+    name: Subir por FTP a Hostinger
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el código del repositorio
+        uses: actions/checkout@v4
+ 
+      - name: Subir archivos por FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Carpeta del repo que se sube (la raíz del proyecto)
+          local-dir: ./
+          # Carpeta destino en Hostinger — normalmente public_html/
+          server-dir: ./public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+ 
